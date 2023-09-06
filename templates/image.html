@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Uploaded</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/elevatezoom/3.0.8/jquery.elevatezoom.min.css">
+</head>
+<body>
+    <h1>Image Uploaded</h1>
+    <p>Uploaded Image: {{ image_name }}</p>
+    <img id="zoom-image" src="{{ url_for('static', filename='uploads/' + image_name) }}" data-zoom-image="{{ url_for('static', filename='uploads/' + image_name) }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/elevatezoom/3.0.8/jquery.elevatezoom.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#zoom-image').elevateZoom({
+                zoomType: 'lens',
+                lensShape: 'round',
+                lensSize: 200
+            });
+        });
+    </script>
+</body>
+</html>
